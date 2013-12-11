@@ -7,18 +7,21 @@
 //
 
 #import "PersonEditViewController.h"
+#import "PersonEditControl.h"
 
 @interface PersonEditViewController ()
+
+@property (nonatomic, strong) PersonEditControl *editControl;
 
 @end
 
 @implementation PersonEditViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+-(id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // Custom initialization
+        [self setupHttpQueue];
     }
     return self;
 }
@@ -33,6 +36,30 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)dealloc
+{
+    [self destoryHttpQueue];
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - 网络相关
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (void)setupHttpQueue
+{
+    self.editControl = [[PersonEditControl alloc] init];
+    [[ITSTransManager defaultManager] add:self.editControl];
+}
+
+- (void)destoryHttpQueue
+{
+    if (self.editControl)
+        [[ITSTransManager defaultManager] remove:self.editControl];
+    self.editControl = nil;
 }
 
 @end

@@ -8,21 +8,23 @@
 
 #import "SimpleSearchViewController.h"
 #import "MJRefresh/MJRefresh.h"
+#import "SimpleSearchControl.h"
 
 @interface SimpleSearchViewController ()<MJRefreshBaseViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *datasource;
 @property (nonatomic, strong) MJRefreshFooterView *footerView;
+@property (nonatomic, strong) SimpleSearchControl *searchControl;
 
 @end
 
 @implementation SimpleSearchViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+-(id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithStyle:style];
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // Custom initialization
+        [self setupHttpQueue];
     }
     return self;
 }
@@ -44,6 +46,7 @@
 -(void)dealloc
 {
     [self.footerView free];
+    [self destoryHttpQueue];
 }
 
 - (void)initViews
@@ -114,6 +117,25 @@
     for (int i = 0; i < str.length; i++) {
         [self.datasource addObject:[str substringWithRange:NSMakeRange(i, 1)]];
     }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - 网络相关
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (void)setupHttpQueue
+{
+    self.searchControl = [[SimpleSearchControl alloc] init];
+    [[ITSTransManager defaultManager] add:self.searchControl];
+}
+
+- (void)destoryHttpQueue
+{
+    if (self.searchControl)
+        [[ITSTransManager defaultManager] remove:self.searchControl];
+    self.searchControl = nil;
 }
 
 @end

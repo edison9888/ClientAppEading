@@ -7,18 +7,21 @@
 //
 
 #import "ProductDetailViewController.h"
+#import "ProductDetailControl.h"
 
 @interface ProductDetailViewController ()
+
+@property (nonatomic, strong)ProductDetailControl *detailControl;
 
 @end
 
 @implementation ProductDetailViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+-(id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // Custom initialization
+        [self setupHttpQueue];
     }
     return self;
 }
@@ -33,6 +36,30 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)dealloc
+{
+    [self destoryHttpQueue];
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - 网络相关
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (void)setupHttpQueue
+{
+    self.detailControl = [[ProductDetailControl alloc] init];
+    [[ITSTransManager defaultManager] add:self.detailControl];
+}
+
+- (void)destoryHttpQueue
+{
+    if (self.detailControl)
+        [[ITSTransManager defaultManager] remove:self.detailControl];
+    self.detailControl = nil;
 }
 
 @end

@@ -7,20 +7,22 @@
 //
 
 #import "ProductViewController.h"
+#import "ProductControl.h"
 
 @interface ProductViewController ()
 
 @property (nonatomic, strong) NSMutableArray *datasource;
+@property (nonatomic, strong) ProductControl *productControl;
 
 @end
 
 @implementation ProductViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+-(id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // Custom initialization
+        [self setupHttpQueue];
     }
     return self;
 }
@@ -38,6 +40,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)dealloc
+{
+    [self destoryHttpQueue];
 }
 
 -(void)initViews
@@ -134,6 +141,25 @@
     for (int i = 0; i < str.length; i++) {
         [self.datasource addObject:[str substringWithRange:NSMakeRange(i, 1)]];
     }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - 网络相关
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (void)setupHttpQueue
+{
+    self.productControl = [[ProductControl alloc] init];
+    [[ITSTransManager defaultManager] add:self.productControl];
+}
+
+- (void)destoryHttpQueue
+{
+    if (self.productControl)
+        [[ITSTransManager defaultManager] remove:self.productControl];
+    self.productControl = nil;
 }
 
 @end

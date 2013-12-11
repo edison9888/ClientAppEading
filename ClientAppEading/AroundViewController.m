@@ -10,24 +10,28 @@
 #import "TSLocationManagerDelegate.h"
 #import "TSLocationManager.h"
 
+#import "AroundControl.h"
+
 @interface AroundViewController () <TSLocationManagerDelegate>
 
 // 位置管理器
 @property (nonatomic, strong) TSLocationManager *locationManager;
 // 是否震动
 @property (nonatomic, assign) BOOL isShake;
-
+// 数据源
 @property (nonatomic, strong) NSMutableArray *datasource;
+// 网络控制
+@property (nonatomic, strong) AroundControl *aroundControl;
 
 @end
 
 @implementation AroundViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+-(id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // Custom initialization
+        [self setupHttpQueue];
     }
     return self;
 }
@@ -60,6 +64,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)dealloc
+{
+    [self destoryHttpQueue];
 }
 
 #pragma mark - 位置管理
@@ -152,6 +161,25 @@
     for (int i = 0; i < str.length; i++) {
         [self.datasource addObject:[str substringWithRange:NSMakeRange(i, 1)]];
     }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - 网络相关
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (void)setupHttpQueue
+{
+    self.aroundControl = [[AroundControl alloc] init];
+    [[ITSTransManager defaultManager] add:self.aroundControl];
+}
+
+- (void)destoryHttpQueue
+{
+    if (self.aroundControl)
+        [[ITSTransManager defaultManager] remove:self.aroundControl];
+    self.aroundControl = nil;
 }
 
 @end

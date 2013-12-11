@@ -7,18 +7,21 @@
 //
 
 #import "RegisterVerifyViewController.h"
+#import "RegisterVerifyControl.h"
 
 @interface RegisterVerifyViewController ()
+
+@property (nonatomic, strong) RegisterVerifyControl *verifyControl;
 
 @end
 
 @implementation RegisterVerifyViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+-(id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // Custom initialization
+        [self setupHttpQueue];
     }
     return self;
 }
@@ -35,6 +38,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)dealloc
+{
+    [self destoryHttpQueue];
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #pragma mark - action
@@ -49,6 +57,25 @@
 -(void)doneButtonClicked:(id)sender
 {
 
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - 网络相关
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (void)setupHttpQueue
+{
+    self.verifyControl = [[RegisterVerifyControl alloc] init];
+    [[ITSTransManager defaultManager] add:self.verifyControl];
+}
+
+- (void)destoryHttpQueue
+{
+    if (self.verifyControl)
+        [[ITSTransManager defaultManager] remove:self.verifyControl];
+    self.verifyControl = nil;
 }
 
 @end

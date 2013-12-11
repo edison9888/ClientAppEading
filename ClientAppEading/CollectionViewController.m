@@ -8,21 +8,23 @@
 
 #import "CollectionViewController.h"
 #import "MJRefresh/MJRefresh.h"
+#import "CollectionControl.h"
 
 @interface CollectionViewController () <MJRefreshBaseViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *datasource;
 @property (nonatomic, strong) MJRefreshFooterView *footerView;
+@property (nonatomic, strong) CollectionControl *collectionControl;
 
 @end
 
 @implementation CollectionViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+-(id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithStyle:style];
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // Custom initialization
+        [self setupHttpQueue];
     }
     return self;
 }
@@ -44,6 +46,7 @@
 -(void)dealloc
 {
     [self.footerView free];
+    [self destoryHttpQueue];
 }
 
 - (void)initViews
@@ -114,6 +117,25 @@
     for (int i = 0; i < str.length; i++) {
         [self.datasource addObject:[str substringWithRange:NSMakeRange(i, 1)]];
     }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - 网络相关
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (void)setupHttpQueue
+{
+    self.collectionControl = [[CollectionControl alloc] init];
+    [[ITSTransManager defaultManager] add:self.collectionControl];
+}
+
+- (void)destoryHttpQueue
+{
+    if (self.collectionControl)
+        [[ITSTransManager defaultManager] remove:self.collectionControl];
+    self.collectionControl = nil;
 }
 
 @end

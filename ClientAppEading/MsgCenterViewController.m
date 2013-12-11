@@ -8,21 +8,23 @@
 
 #import "MsgCenterViewController.h"
 #import "MJRefresh/MJRefresh.h"
+#import "MsgCenterControl.h"
 
 @interface MsgCenterViewController () <MJRefreshBaseViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *datasource;
 @property (nonatomic, strong) MJRefreshFooterView *footerView;
+@property (nonatomic, strong) MsgCenterControl *msgControl;
 
 @end
 
 @implementation MsgCenterViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+-(id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithStyle:style];
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // Custom initialization
+        [self setupHttpQueue];
     }
     return self;
 }
@@ -38,6 +40,7 @@
 -(void)dealloc
 {
     [self.footerView free];
+    [self destoryHttpQueue];
 }
 
 - (void)didReceiveMemoryWarning
@@ -112,6 +115,25 @@
     for (int i = 0; i < str.length; i++) {
         [self.datasource addObject:[str substringWithRange:NSMakeRange(i, 1)]];
     }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - 网络相关
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (void)setupHttpQueue
+{
+    self.msgControl = [[MsgCenterControl alloc] init];
+    [[ITSTransManager defaultManager] add:self.msgControl];
+}
+
+- (void)destoryHttpQueue
+{
+    if (self.msgControl)
+        [[ITSTransManager defaultManager] remove:self.msgControl];
+    self.msgControl = nil;
 }
 
 @end

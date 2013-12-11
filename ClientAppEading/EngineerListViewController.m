@@ -7,20 +7,22 @@
 //
 
 #import "EngineerListViewController.h"
+#import "EngineerListControl.h"
 
 @interface EngineerListViewController ()
 
 @property (nonatomic, strong) NSMutableArray *datasource;
+@property (nonatomic, strong) EngineerListControl *engineerListControl;
 
 @end
 
 @implementation EngineerListViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+-(id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithStyle:style];
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // Custom initialization
+        [self setupHttpQueue];
     }
     return self;
 }
@@ -34,6 +36,11 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+-(void)dealloc
+{
+    [self destoryHttpQueue];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -81,6 +88,25 @@
     for (int i = 0; i < str.length; i++) {
         [self.datasource addObject:[str substringWithRange:NSMakeRange(i, 1)]];
     }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - 网络相关
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (void)setupHttpQueue
+{
+    self.engineerListControl = [[EngineerListControl alloc] init];
+    [[ITSTransManager defaultManager] add:self.engineerListControl];
+}
+
+- (void)destoryHttpQueue
+{
+    if (self.engineerListControl)
+        [[ITSTransManager defaultManager] remove:self.engineerListControl];
+    self.engineerListControl = nil;
 }
 
 @end

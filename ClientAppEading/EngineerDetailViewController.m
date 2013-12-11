@@ -7,18 +7,21 @@
 //
 
 #import "EngineerDetailViewController.h"
+#import "EngineerDetailControl.h"
 
 @interface EngineerDetailViewController ()
+
+@property (nonatomic, strong) EngineerDetailControl *detailControl;
 
 @end
 
 @implementation EngineerDetailViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+-(id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // Custom initialization
+        [self setupHttpQueue];
     }
     return self;
 }
@@ -35,6 +38,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)dealloc
+{
+    [self destoryHttpQueue];
+}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -55,6 +62,25 @@
 -(void)phoneButtonClicked:(id)sender
 {
 
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - 网络相关
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (void)setupHttpQueue
+{
+    self.detailControl = [[EngineerDetailControl alloc] init];
+    [[ITSTransManager defaultManager] add:self.detailControl];
+}
+
+- (void)destoryHttpQueue
+{
+    if (self.detailControl)
+        [[ITSTransManager defaultManager] remove:self.detailControl];
+    self.detailControl = nil;
 }
 
 @end

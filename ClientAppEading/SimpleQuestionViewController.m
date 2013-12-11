@@ -7,20 +7,22 @@
 //
 
 #import "SimpleQuestionViewController.h"
+#import "SimpleQuestionControl.h"
 
 @interface SimpleQuestionViewController ()
 
 @property (nonatomic, strong) NSMutableArray *datasource;
+@property (nonatomic, strong) SimpleQuestionControl *questionControl;
 
 @end
 
 @implementation SimpleQuestionViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+-(id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // Custom initialization
+        [self setupHttpQueue];
     }
     return self;
 }
@@ -36,6 +38,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)dealloc
+{
+    [self destoryHttpQueue];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -104,6 +111,25 @@
     for (int i = 0; i < str.length; i++) {
         [self.datasource addObject:[str substringWithRange:NSMakeRange(i, 1)]];
     }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - 网络相关
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (void)setupHttpQueue
+{
+    self.questionControl = [[SimpleQuestionControl alloc] init];
+    [[ITSTransManager defaultManager] add:self.questionControl];
+}
+
+- (void)destoryHttpQueue
+{
+    if (self.questionControl)
+        [[ITSTransManager defaultManager] remove:self.questionControl];
+    self.questionControl = nil;
 }
 
 @end

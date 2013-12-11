@@ -7,20 +7,22 @@
 //
 
 #import "PersonInfoViewController.h"
+#import "PersonInfoControl.h"
 
 @interface PersonInfoViewController ()
 
 @property (nonatomic, strong) NSMutableArray *datasource;
+@property (nonatomic, strong) PersonInfoControl *infoControl;
 
 @end
 
 @implementation PersonInfoViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+-(id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithStyle:style];
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // Custom initialization
+        [self setupHttpQueue];
     }
     return self;
 }
@@ -36,6 +38,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)dealloc
+{
+    [self destoryHttpQueue];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -82,6 +89,25 @@
     [self.datasource addObject:@"电话:13000000000"];
     [self.datasource addObject:@"姓名:张三"];
     [self.datasource addObject:@"邮箱:zhangsan@qq.com"];
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - 网络相关
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (void)setupHttpQueue
+{
+    self.infoControl = [[PersonInfoControl alloc] init];
+    [[ITSTransManager defaultManager] add:self.infoControl];
+}
+
+- (void)destoryHttpQueue
+{
+    if (self.infoControl)
+        [[ITSTransManager defaultManager] remove:self.infoControl];
+    self.infoControl = nil;
 }
 
 @end

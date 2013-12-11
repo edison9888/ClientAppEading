@@ -8,21 +8,23 @@
 
 #import "ProductListViewController.h"
 #import "MJRefresh/MJRefresh.h"
+#import "ProductListControl.h"
 
 @interface ProductListViewController () <MJRefreshBaseViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *datasource;
 @property (nonatomic, strong) MJRefreshFooterView *footerView;
+@property (nonatomic, strong) ProductListControl *productListControl;
 
 @end
 
 @implementation ProductListViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
+-(id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithStyle:style];
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // Custom initialization
+        [self setupHttpQueue];
     }
     return self;
 }
@@ -37,6 +39,7 @@
 -(void)dealloc
 {
     [self.footerView free];
+    [self destoryHttpQueue];
 }
 
 - (void)didReceiveMemoryWarning
@@ -109,6 +112,25 @@
     for (int i = 0; i < str.length; i++) {
         [self.datasource addObject:[str substringWithRange:NSMakeRange(i, 1)]];
     }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - 网络相关
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (void)setupHttpQueue
+{
+    self.productListControl = [[ProductListControl alloc] init];
+    [[ITSTransManager defaultManager] add:self.productListControl];
+}
+
+- (void)destoryHttpQueue
+{
+    if (self.productListControl)
+        [[ITSTransManager defaultManager] remove:self.productListControl];
+    self.productListControl = nil;
 }
 
 @end

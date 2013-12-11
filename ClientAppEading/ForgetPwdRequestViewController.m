@@ -7,18 +7,21 @@
 //
 
 #import "ForgetPwdRequestViewController.h"
+#import "ForgetPwdControl.h"
 
 @interface ForgetPwdRequestViewController ()
+
+@property (nonatomic, strong) ForgetPwdControl *forgetControl;
 
 @end
 
 @implementation ForgetPwdRequestViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+-(id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // Custom initialization
+        [self setupHttpQueue];
     }
     return self;
 }
@@ -35,6 +38,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)dealloc
+{
+    [self destoryHttpQueue];
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #pragma mark - action
@@ -44,6 +52,26 @@
 -(void)sendButtonClicked:(id)sender
 {
     [self performSegueWithIdentifier:@"forgetVerify" sender:sender];
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - 网络相关
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (void)setupHttpQueue
+{
+    self.forgetControl = [[ForgetPwdControl alloc] init];
+    [[ITSTransManager defaultManager] add:self.forgetControl];
+}
+
+- (void)destoryHttpQueue
+{
+    if (self.forgetControl)
+        [[ITSTransManager defaultManager] remove:self.forgetControl];
+    self.forgetControl = nil;
 }
 
 @end

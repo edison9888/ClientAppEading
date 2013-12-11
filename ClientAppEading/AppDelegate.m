@@ -7,13 +7,19 @@
 //
 
 #import "AppDelegate.h"
+#import "ITSTransManager.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    // 监听震动
     [application setApplicationSupportsShakeToEdit:YES];
+    
+    // 初始化网络参数
+    ITSTransManager *transManager = [ITSTransManager defaultManager];
+    [transManager setHostname:@""];
+    
     return YES;
 }
 							

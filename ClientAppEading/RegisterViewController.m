@@ -7,18 +7,21 @@
 //
 
 #import "RegisterViewController.h"
+#import "RegisterControl.h"
 
 @interface RegisterViewController ()
+
+@property (nonatomic, strong) RegisterControl *registerControl;
 
 @end
 
 @implementation RegisterViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+-(id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // Custom initialization
+        [self setupHttpQueue];
     }
     return self;
 }
@@ -35,6 +38,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)dealloc
+{
+    [self destoryHttpQueue];
+}
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #pragma mark - action
@@ -44,6 +52,25 @@
 -(void)nextButtonClicked:(id)sender
 {
     [self performSegueWithIdentifier:@"registerVerify" sender:sender];
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - 网络相关
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (void)setupHttpQueue
+{
+    self.registerControl = [[RegisterControl alloc] init];
+    [[ITSTransManager defaultManager] add:self.registerControl];
+}
+
+- (void)destoryHttpQueue
+{
+    if (self.registerControl)
+        [[ITSTransManager defaultManager] remove:self.registerControl];
+    self.registerControl = nil;
 }
 
 @end

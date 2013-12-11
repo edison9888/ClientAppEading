@@ -7,18 +7,21 @@
 //
 
 #import "BranchNaviViewController.h"
+#import "BranchNaviControl.h"
 
 @interface BranchNaviViewController ()
+
+@property (nonatomic, strong)BranchNaviControl *naviControl;
 
 @end
 
 @implementation BranchNaviViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+-(id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // Custom initialization
+        [self setupHttpQueue];
     }
     return self;
 }
@@ -33,6 +36,30 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)dealloc
+{
+    [self destoryHttpQueue];
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - 网络相关
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (void)setupHttpQueue
+{
+    self.naviControl = [[BranchNaviControl alloc] init];
+    [[ITSTransManager defaultManager] add:self.naviControl];
+}
+
+- (void)destoryHttpQueue
+{
+    if (self.naviControl)
+        [[ITSTransManager defaultManager] remove:self.naviControl];
+    self.naviControl = nil;
 }
 
 @end
