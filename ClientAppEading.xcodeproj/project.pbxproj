@@ -72,6 +72,11 @@
 		3988E6991857356400FC7748 /* map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3988E6951857356400FC7748 /* map@2x.png */; };
 		3988E69A1857356400FC7748 /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 3988E6961857356400FC7748 /* menu.png */; };
 		3988E69B1857356400FC7748 /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3988E6971857356400FC7748 /* menu@2x.png */; };
+		398B1EE71858014100DC7596 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398B1EE61858014100DC7596 /* LoginViewController.m */; };
+		398B1EEA1858015000DC7596 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398B1EE91858015000DC7596 /* RegisterViewController.m */; };
+		398B1EED1858017000DC7596 /* RegisterVerifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398B1EEC1858017000DC7596 /* RegisterVerifyViewController.m */; };
+		398B1EF0185801CF00DC7596 /* ForgetPwdRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398B1EEF185801CF00DC7596 /* ForgetPwdRequestViewController.m */; };
+		398B1EF3185801ED00DC7596 /* ForgetPwdVerifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398B1EF2185801ED00DC7596 /* ForgetPwdVerifyViewController.m */; };
 		398BD9D718558E8D00B8D6F9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 398BD9D618558E8D00B8D6F9 /* Foundation.framework */; };
 		398BD9D918558E8D00B8D6F9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 398BD9D818558E8D00B8D6F9 /* CoreGraphics.framework */; };
 		398BD9DB18558E8D00B8D6F9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 398BD9DA18558E8D00B8D6F9 /* UIKit.framework */; };
@@ -247,6 +252,17 @@
 		3988E6951857356400FC7748 /* map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map@2x.png"; sourceTree = "<group>"; };
 		3988E6961857356400FC7748 /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		3988E6971857356400FC7748 /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
+		398B1EE51858014100DC7596 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		398B1EE61858014100DC7596 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		398B1EE81858015000DC7596 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		398B1EE91858015000DC7596 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		398B1EEB1858017000DC7596 /* RegisterVerifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterVerifyViewController.h; sourceTree = "<group>"; };
+		398B1EEC1858017000DC7596 /* RegisterVerifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterVerifyViewController.m; sourceTree = "<group>"; };
+		398B1EEE185801CF00DC7596 /* ForgetPwdRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPwdRequestViewController.h; sourceTree = "<group>"; };
+		398B1EEF185801CF00DC7596 /* ForgetPwdRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPwdRequestViewController.m; sourceTree = "<group>"; };
+		398B1EF1185801ED00DC7596 /* ForgetPwdVerifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPwdVerifyViewController.h; sourceTree = "<group>"; };
+		398B1EF2185801ED00DC7596 /* ForgetPwdVerifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPwdVerifyViewController.m; sourceTree = "<group>"; };
+		398B1EF7185814CC00DC7596 /* ContainDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContainDelegate.h; sourceTree = "<group>"; };
 		398BD9D318558E8D00B8D6F9 /* ClientAppEading.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClientAppEading.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		398BD9D618558E8D00B8D6F9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		398BD9D818558E8D00B8D6F9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -599,6 +615,23 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		398B1EE41858012A00DC7596 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				398B1EE51858014100DC7596 /* LoginViewController.h */,
+				398B1EE61858014100DC7596 /* LoginViewController.m */,
+				398B1EE81858015000DC7596 /* RegisterViewController.h */,
+				398B1EE91858015000DC7596 /* RegisterViewController.m */,
+				398B1EEB1858017000DC7596 /* RegisterVerifyViewController.h */,
+				398B1EEC1858017000DC7596 /* RegisterVerifyViewController.m */,
+				398B1EEE185801CF00DC7596 /* ForgetPwdRequestViewController.h */,
+				398B1EEF185801CF00DC7596 /* ForgetPwdRequestViewController.m */,
+				398B1EF1185801ED00DC7596 /* ForgetPwdVerifyViewController.h */,
+				398B1EF2185801ED00DC7596 /* ForgetPwdVerifyViewController.m */,
+			);
+			name = Account;
+			sourceTree = "<group>";
+		};
 		398BD9CA18558E8D00B8D6F9 = {
 			isa = PBXGroup;
 			children = (
@@ -684,6 +717,7 @@
 			isa = PBXGroup;
 			children = (
 				398BD9E818558E8D00B8D6F9 /* Main.storyboard */,
+				398B1EE41858012A00DC7596 /* Account */,
 				398BDA0F18559C9200B8D6F9 /* Main */,
 				398BDA1018559CA600B8D6F9 /* Online */,
 				398BDA1118559CB000B8D6F9 /* Product */,
@@ -704,6 +738,7 @@
 				398BDA4E1855B79B00B8D6F9 /* BaseTabBarController.m */,
 				398BD9EB18558E8D00B8D6F9 /* MainViewController.h */,
 				398BD9EC18558E8D00B8D6F9 /* MainViewController.m */,
+				398B1EF7185814CC00DC7596 /* ContainDelegate.h */,
 				398BDA0B1855953000B8D6F9 /* ContainViewController.h */,
 				398BDA0C1855953000B8D6F9 /* ContainViewController.m */,
 			);
@@ -920,8 +955,10 @@
 				398BDA621855C8A300B8D6F9 /* MJRefreshFooterView.m in Sources */,
 				398BDA1918559D1C00B8D6F9 /* ProductViewController.m in Sources */,
 				3988E6221857333F00FC7748 /* ModelUtil.m in Sources */,
+				398B1EF0185801CF00DC7596 /* ForgetPwdRequestViewController.m in Sources */,
 				398BDA2B1855A13B00B8D6F9 /* PersonInfoViewController.m in Sources */,
 				3988E5BD185719F300FC7748 /* SimpleQuestionViewController.m in Sources */,
+				398B1EE71858014100DC7596 /* LoginViewController.m in Sources */,
 				398BD9ED18558E8D00B8D6F9 /* MainViewController.m in Sources */,
 				3988E642185733A500FC7748 /* NSDate+RFC1123.m in Sources */,
 				3988E6201857333F00FC7748 /* QuakeFeature.m in Sources */,
@@ -964,12 +1001,14 @@
 				3988E68B1857356400FC7748 /* EvilTransform.m in Sources */,
 				3988E6211857333F00FC7748 /* QuakeFeaturesResponse.m in Sources */,
 				398BDA541855BCD200B8D6F9 /* ExtendCell.m in Sources */,
+				398B1EED1858017000DC7596 /* RegisterVerifyViewController.m in Sources */,
 				3988E5C91857228B00FC7748 /* AroundListViewController.m in Sources */,
 				3988E65D185733CE00FC7748 /* DDFileLogger.m in Sources */,
 				3988E61A1857333F00FC7748 /* ITSResponseFactory.m in Sources */,
 				398BDA281855A0D100B8D6F9 /* PersonCenterViewController.m in Sources */,
 				3988E661185733CE00FC7748 /* DispatchQueueLogFormatter.m in Sources */,
 				398BDA431855AB3900B8D6F9 /* AboutViewController.m in Sources */,
+				398B1EEA1858015000DC7596 /* RegisterViewController.m in Sources */,
 				3988E6661857347300FC7748 /* AppData.m in Sources */,
 				3988E5D218572B2100FC7748 /* BranchDetailViewController.m in Sources */,
 				3988E5C318571B0D00FC7748 /* DiscussViewController.m in Sources */,
@@ -977,6 +1016,7 @@
 				3988E6231857333F00FC7748 /* NSNull+Fix.m in Sources */,
 				398BDA371855AA6F00B8D6F9 /* MsgDetailViewController.m in Sources */,
 				3988E645185733A500FC7748 /* UIAlertView+MKNetworkKitAdditions.m in Sources */,
+				398B1EF3185801ED00DC7596 /* ForgetPwdVerifyViewController.m in Sources */,
 				3988E6921857356400FC7748 /* MBProgressHUD.m in Sources */,
 				398BDA311855A18900B8D6F9 /* PwdChangeViewController.m in Sources */,
 				398BDA1C18559D2500B8D6F9 /* AroundViewController.m in Sources */,

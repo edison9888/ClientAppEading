@@ -19,6 +19,18 @@
     [super viewDidLoad];
 }
 
+-(void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    [self showLoginViewController];
+
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -27,16 +39,32 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSNumber *index = [NSNumber numberWithInteger:((UIButton *)sender).tag];
-    UIViewController *send = segue.destinationViewController;
-    if ([send respondsToSelector:@selector(setItemIndex:)]) {
-        [send setValue:index forKey:@"itemIndex"];
+    if (sender == nil) {
+    
+    }
+    else if ([sender isKindOfClass:[UIButton class]]) {
+        NSNumber *index = [NSNumber numberWithInteger:((UIButton *)sender).tag];
+        UIViewController *send = segue.destinationViewController;
+        if ([send respondsToSelector:@selector(setItemIndex:)]) {
+            [send setValue:index forKey:@"itemIndex"];
+        }
     }
 }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#pragma mark - action
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 -(void)showViewController:(id)sender
 {
     [self performSegueWithIdentifier:@"menu" sender:sender];
+}
+
+-(void)showLoginViewController
+{
+    [self performSegueWithIdentifier:@"login" sender:nil];
 }
 
 @end

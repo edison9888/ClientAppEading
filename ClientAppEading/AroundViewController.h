@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
+#import "ContainDelegate.h"
 
 @interface AroundViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, assign) id<ContainDelegate>containDelegate;
 
 @property (nonatomic, assign) IBOutlet UIButton *distanceButton;
 @property (nonatomic, assign) IBOutlet UITableView *tableView;
@@ -17,5 +20,7 @@
 @property (nonatomic, assign) IBOutlet UIView *personView;
 @property (nonatomic, assign) IBOutlet UIView *defaultView;
 @property (nonatomic, assign) IBOutlet UIView *resultView;
+
+-(IBAction)backButtonClicked:(id)sender;
 
 @end

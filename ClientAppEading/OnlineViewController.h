@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ContainDelegate.h"
 
 @interface OnlineViewController : UITableViewController
+
+@property (nonatomic, assign) id<ContainDelegate>containDelegate;
+
+-(IBAction)backButtonClicked:(id)sender;
 
 @end

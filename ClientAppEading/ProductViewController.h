@@ -8,10 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
+#import "ContainDelegate.h"
 
 @interface ProductViewController : BaseViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
+@property (nonatomic, assign) id<ContainDelegate>containDelegate;
+
 @property (nonatomic, assign) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) IBOutlet UISearchBar *searchBar;
+
+-(IBAction)backButtonClicked:(id)sender;
 
 @end

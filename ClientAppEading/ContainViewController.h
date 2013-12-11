@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ContainDelegate.h"
 
-@interface ContainViewController : UITabBarController
+@interface ContainViewController : UITabBarController<ContainDelegate>
 
 @property (nonatomic, strong) NSNumber *itemIndex;
 
