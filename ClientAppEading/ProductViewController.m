@@ -79,7 +79,7 @@
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-
+    [self performSegueWithIdentifier:@"categorySearchProduct" sender:searchBar];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////

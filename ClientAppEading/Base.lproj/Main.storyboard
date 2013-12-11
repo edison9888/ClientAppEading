@@ -83,6 +83,38 @@
             </objects>
             <point key="canvasLocation" x="1125" y="-4848"/>
         </scene>
+        <!--Simple Search View Controller - 常见问题-->
+        <scene sceneID="FkA-cd-5Lh">
+            <objects>
+                <tableViewController id="a3R-kb-QBO" customClass="SimpleSearchViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Q4g-dO-xI1">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="searchQuestionCell" id="uH1-ND-9On">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uH1-ND-9On" id="13K-9e-wyV">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="a3R-kb-QBO" id="wOL-Us-RUk"/>
+                            <outlet property="delegate" destination="a3R-kb-QBO" id="Fju-yY-GP5"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="常见问题" id="OXe-II-W0I"/>
+                    <connections>
+                        <segue destination="HEY-1T-dxH" kind="push" identifier="searchShowSimpleAnswer" id="QVY-Nn-Bka"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WlS-DJ-nME" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2513" y="-4848"/>
+        </scene>
         <!--Simple Question View Controller - 常见问题-->
         <scene sceneID="qCP-XP-qHL">
             <objects>
@@ -126,6 +158,7 @@
                         <outlet property="searchBar" destination="3FM-gj-XHC" id="q59-0y-GLG"/>
                         <outlet property="tableView" destination="0ee-Ds-PS4" id="9Kh-Ec-Fhf"/>
                         <segue destination="HEY-1T-dxH" kind="push" identifier="showSimpleAnswer" id="W7b-Ax-ZG7"/>
+                        <segue destination="a3R-kb-QBO" kind="push" identifier="showSearchQuestion" id="Hwr-qs-r2b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oVy-aY-wQA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -145,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lWY-YH-iGa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2825" y="-3736"/>
+            <point key="canvasLocation" x="3065" y="-3736"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -935,7 +968,8 @@
                     <connections>
                         <outlet property="searchBar" destination="KO1-zl-tfe" id="8nO-Ds-Er0"/>
                         <outlet property="tableView" destination="Mcc-nP-CqT" id="bgB-Tm-FtT"/>
-                        <segue destination="ecG-10-f9X" kind="push" identifier="categoryShowProduct" id="EqA-b1-ruq"/>
+                        <segue destination="cmO-cF-oM9" kind="push" identifier="categoryShowProduct" id="xiw-CD-CM9"/>
+                        <segue destination="ecG-10-f9X" kind="push" identifier="categorySearchProduct" id="IRa-3P-YDh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gky-vu-mVD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1082,7 +1116,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kqc-wE-48U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1305" y="-1803"/>
+            <point key="canvasLocation" x="1125" y="-1803"/>
         </scene>
         <!--Around Map View Controller - 附近的服务-->
         <scene sceneID="a0N-Qo-qtD">
@@ -1107,7 +1141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ofm-zH-6Ag" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2001" y="-1803"/>
+            <point key="canvasLocation" x="1977" y="-1803"/>
         </scene>
         <!--Engineer Detail View Controller - 工程师详情-->
         <scene sceneID="Ed1-Oc-lXN">
@@ -1390,7 +1424,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S2n-Ce-bsa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3469" y="-2690"/>
+            <point key="canvasLocation" x="3445" y="-2690"/>
         </scene>
         <!--Engineer List View Controller - 工程师列表-->
         <scene sceneID="fzw-Na-VZb">
@@ -1437,7 +1471,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5NN-wo-Rwm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4493" y="-2690"/>
+            <point key="canvasLocation" x="4413" y="-3294"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -1447,8 +1481,9 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="u3l-xl-9qh"/>
-        <segue reference="EqA-b1-ruq"/>
+        <segue reference="QVY-Nn-Bka"/>
+        <segue reference="IRa-3P-YDh"/>
         <segue reference="G4O-iZ-vy3"/>
-        <segue reference="z8J-gb-HJ4"/>
+        <segue reference="Kcr-pS-B9g"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -77,6 +77,7 @@
 		398B1EED1858017000DC7596 /* RegisterVerifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398B1EEC1858017000DC7596 /* RegisterVerifyViewController.m */; };
 		398B1EF0185801CF00DC7596 /* ForgetPwdRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398B1EEF185801CF00DC7596 /* ForgetPwdRequestViewController.m */; };
 		398B1EF3185801ED00DC7596 /* ForgetPwdVerifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398B1EF2185801ED00DC7596 /* ForgetPwdVerifyViewController.m */; };
+		398B1EFA18583FE800DC7596 /* SimpleSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398B1EF918583FE800DC7596 /* SimpleSearchViewController.m */; };
 		398BD9D718558E8D00B8D6F9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 398BD9D618558E8D00B8D6F9 /* Foundation.framework */; };
 		398BD9D918558E8D00B8D6F9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 398BD9D818558E8D00B8D6F9 /* CoreGraphics.framework */; };
 		398BD9DB18558E8D00B8D6F9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 398BD9DA18558E8D00B8D6F9 /* UIKit.framework */; };
@@ -263,6 +264,8 @@
 		398B1EF1185801ED00DC7596 /* ForgetPwdVerifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPwdVerifyViewController.h; sourceTree = "<group>"; };
 		398B1EF2185801ED00DC7596 /* ForgetPwdVerifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPwdVerifyViewController.m; sourceTree = "<group>"; };
 		398B1EF7185814CC00DC7596 /* ContainDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContainDelegate.h; sourceTree = "<group>"; };
+		398B1EF818583FE800DC7596 /* SimpleSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleSearchViewController.h; sourceTree = "<group>"; };
+		398B1EF918583FE800DC7596 /* SimpleSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleSearchViewController.m; sourceTree = "<group>"; };
 		398BD9D318558E8D00B8D6F9 /* ClientAppEading.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClientAppEading.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		398BD9D618558E8D00B8D6F9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		398BD9D818558E8D00B8D6F9 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -752,6 +755,8 @@
 				3988E5B9185718D400FC7748 /* OnlineViewController.m */,
 				3988E5BB185719F300FC7748 /* SimpleQuestionViewController.h */,
 				3988E5BC185719F300FC7748 /* SimpleQuestionViewController.m */,
+				398B1EF818583FE800DC7596 /* SimpleSearchViewController.h */,
+				398B1EF918583FE800DC7596 /* SimpleSearchViewController.m */,
 				3988E5BE18571A6300FC7748 /* SimpleAnswerViewController.h */,
 				3988E5BF18571A6300FC7748 /* SimpleAnswerViewController.m */,
 				3988E5C118571B0D00FC7748 /* DiscussViewController.h */,
@@ -1009,6 +1014,7 @@
 				3988E661185733CE00FC7748 /* DispatchQueueLogFormatter.m in Sources */,
 				398BDA431855AB3900B8D6F9 /* AboutViewController.m in Sources */,
 				398B1EEA1858015000DC7596 /* RegisterViewController.m in Sources */,
+				398B1EFA18583FE800DC7596 /* SimpleSearchViewController.m in Sources */,
 				3988E6661857347300FC7748 /* AppData.m in Sources */,
 				3988E5D218572B2100FC7748 /* BranchDetailViewController.m in Sources */,
 				3988E5C318571B0D00FC7748 /* DiscussViewController.m in Sources */,

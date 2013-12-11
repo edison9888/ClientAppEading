@@ -78,7 +78,7 @@
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    
+    [self performSegueWithIdentifier:@"showSearchQuestion" sender:searchBar];
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////

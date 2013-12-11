@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MJRefresh/RefreshTableViewController.h"
+#import "BaseTableViewController.h"
 
-@interface CollectionViewController : RefreshTableViewController
+@interface CollectionViewController : BaseTableViewController
 
 @end

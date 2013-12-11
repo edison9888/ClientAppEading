@@ -7,10 +7,12 @@
 //
 
 #import "CollectionViewController.h"
+#import "MJRefresh/MJRefresh.h"
 
-@interface CollectionViewController ()
+@interface CollectionViewController () <MJRefreshBaseViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *datasource;
+@property (nonatomic, strong) MJRefreshFooterView *footerView;
 
 @end
 
@@ -30,12 +32,25 @@
     [super viewDidLoad];
 
     [self testData];
+    [self initViews];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)dealloc
+{
+    [self.footerView free];
+}
+
+- (void)initViews
+{
+    self.footerView = [[MJRefreshFooterView alloc] init];
+    self.footerView.delegate = self;
+    self.footerView.scrollView = self.tableView;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -46,6 +61,7 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    [self.footerView endRefreshing];
     return 1;
 }
 
@@ -68,6 +84,21 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self performSegueWithIdentifier:@"collectionShowProduct" sender:[tableView cellForRowAtIndexPath:indexPath]];
+}
+
+#pragma refresh delegate
+
+-(void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+{
+    if (refreshView == self.footerView) {
+        
+        [self loadMore];
+    }
+}
+
+-(void)loadMore
+{
+    
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
