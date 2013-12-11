@@ -17,6 +17,8 @@
 @property (nonatomic, assign) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) IBOutlet UISearchBar *searchBar;
 
--(IBAction)backButtonClicked:(id)sender;
+@property (nonatomic, strong) NSNumber *level;
+
+//-(IBAction)backButtonClicked:(id)sender;
 
 @end

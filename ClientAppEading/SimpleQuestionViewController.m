@@ -67,7 +67,17 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"showSimpleAnswer" sender:[tableView cellForRowAtIndexPath:indexPath]];
+    if (self.level.intValue >= 3) {
+        [self performSegueWithIdentifier:@"showSimpleAnswer" sender:[tableView cellForRowAtIndexPath:indexPath]];
+    }
+    else {
+        
+        // 创建重复界面
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        SimpleQuestionViewController *questionController = [storyboard instantiateViewControllerWithIdentifier:@"simpleQuestionViewController"];
+        questionController.level = [NSNumber numberWithInt:self.level.intValue + 1];
+        [self.navigationController pushViewController:questionController animated:YES];
+    }
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -95,6 +105,5 @@
         [self.datasource addObject:[str substringWithRange:NSMakeRange(i, 1)]];
     }
 }
-
 
 @end

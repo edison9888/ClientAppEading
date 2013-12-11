@@ -31,12 +31,26 @@
 	// Do any additional setup after loading the view.
     
     [self testData];
+    [self initViews];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)initViews
+{
+    if (self.level.intValue == 0) {
+        
+        UIButton *backButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        [backButton setTitle:@"返回" forState:UIControlStateNormal];
+        [backButton addTarget:self action:@selector(backButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+        backButton.frame = CGRectMake(5, 0, 71, 44);
+        UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+        self.navigationItem.leftBarButtonItem = backItem;
+    }
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -68,7 +82,21 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [self performSegueWithIdentifier:@"categoryShowProduct" sender:[tableView cellForRowAtIndexPath:indexPath]];
+    if (self.level.intValue >= 3) {
+        [self performSegueWithIdentifier:@"categoryShowProduct" sender:[tableView cellForRowAtIndexPath:indexPath]];
+    }
+    else {
+        
+        // 创建重复界面
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        ProductViewController *questionController = [storyboard instantiateViewControllerWithIdentifier:@"productViewController"];
+        
+        if (self.level.intValue == 2) {
+            questionController.title = @"服务列表";
+        }
+        questionController.level = [NSNumber numberWithInt:self.level.intValue + 1];
+        [self.navigationController pushViewController:questionController animated:YES];
+    }
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////

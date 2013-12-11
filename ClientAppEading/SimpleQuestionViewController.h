@@ -14,4 +14,6 @@
 @property (nonatomic, assign) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) IBOutlet UISearchBar *searchBar;
 
+@property (nonatomic, strong) NSNumber *level;
+
 @end

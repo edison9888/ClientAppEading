@@ -950,21 +950,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="产品服务" id="1DY-rf-I2U">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="obf-i1-hcc">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="A38-N0-2iT">
-                                <rect key="frame" x="5" y="0.0" width="71" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="返回">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="backButtonClicked:" destination="krM-To-vYp" eventType="touchUpInside" id="3a8-5a-YMs"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="产品服务" id="1DY-rf-I2U"/>
                     <connections>
                         <outlet property="searchBar" destination="KO1-zl-tfe" id="8nO-Ds-Er0"/>
                         <outlet property="tableView" destination="Mcc-nP-CqT" id="bgB-Tm-FtT"/>
@@ -1019,7 +1005,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kkK-du-LVx">
-                                        <rect key="frame" x="20" y="45" width="202" height="21.000000000000007"/>
+                                        <rect key="frame" x="20" y="45.000000000000014" width="202" height="21"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
@@ -1481,9 +1467,9 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="u3l-xl-9qh"/>
-        <segue reference="QVY-Nn-Bka"/>
+        <segue reference="W7b-Ax-ZG7"/>
+        <segue reference="xiw-CD-CM9"/>
         <segue reference="IRa-3P-YDh"/>
-        <segue reference="G4O-iZ-vy3"/>
         <segue reference="Kcr-pS-B9g"/>
     </inferredMetricsTieBreakers>
 </document>
