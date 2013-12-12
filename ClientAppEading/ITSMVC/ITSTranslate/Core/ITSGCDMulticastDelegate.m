@@ -1,4 +1,4 @@
-#import "GCDMulticastDelegate.h"
+#import "ITSGCDMulticastDelegate.h"
 #import <libkern/OSAtomic.h>
 
 #if __has_feature(objc_arc_weak) && !TARGET_OS_IPHONE
@@ -24,7 +24,7 @@
  * In other words, it is NOT thread-safe, and should only be used from within the external dedicated dispatch_queue.
 **/
 
-@interface GCDMulticastDelegateNode : NSObject {
+@interface ITSGCDMulticastDelegateNode : NSObject {
 @private
 	
   #if __has_feature(objc_arc_weak)
@@ -55,7 +55,7 @@
 @end
 
 
-@interface GCDMulticastDelegate ()
+@interface ITSGCDMulticastDelegate ()
 {
 	NSMutableArray *delegateNodes;
 }
@@ -65,7 +65,7 @@
 @end
 
 
-@interface GCDMulticastDelegateEnumerator ()
+@interface ITSGCDMulticastDelegateEnumerator ()
 {
 	NSUInteger numNodes;
 	NSUInteger currentNodeIndex;
@@ -80,7 +80,7 @@
 #pragma mark -
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-@implementation GCDMulticastDelegate
+@implementation ITSGCDMulticastDelegate
 
 - (id)init
 {
@@ -96,8 +96,8 @@
 	if (delegate == nil) return;
 	if (delegateQueue == NULL) return;
 	
-	GCDMulticastDelegateNode *node =
-	    [[GCDMulticastDelegateNode alloc] initWithDelegate:delegate delegateQueue:delegateQueue];
+	ITSGCDMulticastDelegateNode *node =
+	    [[ITSGCDMulticastDelegateNode alloc] initWithDelegate:delegate delegateQueue:delegateQueue];
 	
 	[delegateNodes addObject:node];
 }
@@ -109,7 +109,7 @@
 	NSUInteger i;
 	for (i = [delegateNodes count]; i > 0; i--)
 	{
-		GCDMulticastDelegateNode *node = [delegateNodes objectAtIndex:(i-1)];
+		ITSGCDMulticastDelegateNode *node = [delegateNodes objectAtIndex:(i-1)];
 		
 		id nodeDelegate = node.delegate;
 		#if __has_feature(objc_arc_weak) && !TARGET_OS_IPHONE
@@ -148,7 +148,7 @@
 
 - (void)removeAllDelegates
 {
-	for (GCDMulticastDelegateNode *node in delegateNodes)
+	for (ITSGCDMulticastDelegateNode *node in delegateNodes)
 	{
 		node.delegate = nil;
 		#if __has_feature(objc_arc_weak) && !TARGET_OS_IPHONE
@@ -168,7 +168,7 @@
 {
 	NSUInteger count = 0;
 	
-	for (GCDMulticastDelegateNode *node in delegateNodes)
+	for (ITSGCDMulticastDelegateNode *node in delegateNodes)
 	{
 		id nodeDelegate = node.delegate;
 		#if __has_feature(objc_arc_weak) && !TARGET_OS_IPHONE
@@ -189,7 +189,7 @@
 {
 	NSUInteger count = 0;
 	
-	for (GCDMulticastDelegateNode *node in delegateNodes)
+	for (ITSGCDMulticastDelegateNode *node in delegateNodes)
 	{
 		id nodeDelegate = node.delegate;
 		#if __has_feature(objc_arc_weak) && !TARGET_OS_IPHONE
@@ -206,14 +206,14 @@
 	return count;
 }
 
-- (GCDMulticastDelegateEnumerator *)delegateEnumerator
+- (ITSGCDMulticastDelegateEnumerator *)delegateEnumerator
 {
-	return [[GCDMulticastDelegateEnumerator alloc] initFromDelegateNodes:delegateNodes];
+	return [[ITSGCDMulticastDelegateEnumerator alloc] initFromDelegateNodes:delegateNodes];
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
 {
-	for (GCDMulticastDelegateNode *node in delegateNodes)
+	for (ITSGCDMulticastDelegateNode *node in delegateNodes)
 	{
 		id nodeDelegate = node.delegate;
 		#if __has_feature(objc_arc_weak) && !TARGET_OS_IPHONE
@@ -243,7 +243,7 @@
 	SEL selector = [origInvocation selector];
 	BOOL foundNilDelegate = NO;
 	
-	for (GCDMulticastDelegateNode *node in delegateNodes)
+	for (ITSGCDMulticastDelegateNode *node in delegateNodes)
 	{
 		id nodeDelegate = node.delegate;
 		#if __has_feature(objc_arc_weak) && !TARGET_OS_IPHONE
@@ -280,7 +280,7 @@
 		NSMutableIndexSet *indexSet = [[NSMutableIndexSet alloc] init];
 		
 		NSUInteger i = 0;
-		for (GCDMulticastDelegateNode *node in delegateNodes)
+		for (ITSGCDMulticastDelegateNode *node in delegateNodes)
 		{
 			id nodeDelegate = node.delegate;
 			#if __has_feature(objc_arc_weak) && !TARGET_OS_IPHONE
@@ -399,7 +399,7 @@
 #pragma mark -
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-@implementation GCDMulticastDelegateNode
+@implementation ITSGCDMulticastDelegateNode
 
 @synthesize delegate;       // atomic
 #if !TARGET_OS_IPHONE
@@ -486,7 +486,7 @@ static BOOL SupportsWeakReferences(id delegate)
 #pragma mark -
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-@implementation GCDMulticastDelegateEnumerator
+@implementation ITSGCDMulticastDelegateEnumerator
 
 - (id)initFromDelegateNodes:(NSMutableArray *)inDelegateNodes
 {
@@ -509,7 +509,7 @@ static BOOL SupportsWeakReferences(id delegate)
 {
 	NSUInteger count = 0;
 	
-	for (GCDMulticastDelegateNode *node in delegateNodes)
+	for (ITSGCDMulticastDelegateNode *node in delegateNodes)
 	{
 		id nodeDelegate = node.delegate;
 		#if __has_feature(objc_arc_weak) && !TARGET_OS_IPHONE
@@ -530,7 +530,7 @@ static BOOL SupportsWeakReferences(id delegate)
 {
 	NSUInteger count = 0;
 	
-	for (GCDMulticastDelegateNode *node in delegateNodes)
+	for (ITSGCDMulticastDelegateNode *node in delegateNodes)
 	{
 		id nodeDelegate = node.delegate;
 		#if __has_feature(objc_arc_weak) && !TARGET_OS_IPHONE
@@ -551,7 +551,7 @@ static BOOL SupportsWeakReferences(id delegate)
 {
 	while (currentNodeIndex < numNodes)
 	{
-		GCDMulticastDelegateNode *node = [delegateNodes objectAtIndex:currentNodeIndex];
+		ITSGCDMulticastDelegateNode *node = [delegateNodes objectAtIndex:currentNodeIndex];
 		currentNodeIndex++;
 		
 		id nodeDelegate = node.delegate; // snapshot atomic property
@@ -576,7 +576,7 @@ static BOOL SupportsWeakReferences(id delegate)
 {
 	while (currentNodeIndex < numNodes)
 	{
-		GCDMulticastDelegateNode *node = [delegateNodes objectAtIndex:currentNodeIndex];
+		ITSGCDMulticastDelegateNode *node = [delegateNodes objectAtIndex:currentNodeIndex];
 		currentNodeIndex++;
 		
 		id nodeDelegate = node.delegate; // snapshot atomic property
@@ -601,7 +601,7 @@ static BOOL SupportsWeakReferences(id delegate)
 {
 	while (currentNodeIndex < numNodes)
 	{
-		GCDMulticastDelegateNode *node = [delegateNodes objectAtIndex:currentNodeIndex];
+		ITSGCDMulticastDelegateNode *node = [delegateNodes objectAtIndex:currentNodeIndex];
 		currentNodeIndex++;
 		
 		id nodeDelegate = node.delegate; // snapshot atomic property

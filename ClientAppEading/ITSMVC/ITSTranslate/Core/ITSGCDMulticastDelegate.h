@@ -4,7 +4,7 @@
 /*  请勿修改  */
 /************/
 
-@class GCDMulticastDelegateEnumerator;
+@class ITSGCDMulticastDelegateEnumerator;
 
 @protocol ITSStreamDelegate <NSObject>
 
@@ -38,7 +38,7 @@
  * All delegate dispatching is done asynchronously (which is a critically important architectural design).
 **/
 
-@interface GCDMulticastDelegate : NSObject
+@interface ITSGCDMulticastDelegate : NSObject
 
 - (void)addDelegate:(id)delegate delegateQueue:(dispatch_queue_t)delegateQueue;
 - (void)removeDelegate:(id)delegate delegateQueue:(dispatch_queue_t)delegateQueue;
@@ -50,12 +50,12 @@
 - (NSUInteger)countOfClass:(Class)aClass;
 - (NSUInteger)countForSelector:(SEL)aSelector;
 
-- (GCDMulticastDelegateEnumerator *)delegateEnumerator;
+- (ITSGCDMulticastDelegateEnumerator *)delegateEnumerator;
 
 @end
 
 
-@interface GCDMulticastDelegateEnumerator : NSObject
+@interface ITSGCDMulticastDelegateEnumerator : NSObject
 
 - (NSUInteger)count;
 - (NSUInteger)countOfClass:(Class)aClass;

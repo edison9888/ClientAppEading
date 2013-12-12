@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GCDMulticastDelegate.h"
+#import "ITSGCDMulticastDelegate.h"
 
 /*************/
 /*  请勿修改  */
@@ -23,7 +23,7 @@
     NSString *hostUrl;
     
     // 动作分发管理器。把通信层的操作，分发给控制层
-    GCDMulticastDelegate *gcdMulticastDelegate;
+    ITSGCDMulticastDelegate *gcdMulticastDelegate;
     
     // 通信线程
     dispatch_queue_t streamQueue;

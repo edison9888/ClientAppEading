@@ -24,7 +24,7 @@
     self = [super init];
     
     if (self) {
-        gcdMulticastDelegate = [[GCDMulticastDelegate alloc] init];
+        gcdMulticastDelegate = [[ITSGCDMulticastDelegate alloc] init];
         streamQueue = dispatch_queue_create("streamQueue", NULL);
         parseQueue = dispatch_queue_create("parseQueue", NULL);
     }
