@@ -251,6 +251,8 @@
 		398BDA621855C8A300B8D6F9 /* MJRefreshFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 398BDA5B1855C8A300B8D6F9 /* MJRefreshFooterView.m */; };
 		398BDA631855C8A300B8D6F9 /* MJRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 398BDA5D1855C8A300B8D6F9 /* MJRefreshHeaderView.m */; };
 		398BDA641855C8A300B8D6F9 /* RefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398BDA5F1855C8A300B8D6F9 /* RefreshTableViewController.m */; };
+		398E1189185AA39300C42887 /* UserData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 398E1188185AA39300C42887 /* UserData.plist */; };
+		398E118C185AECE900C42887 /* XMPPTransManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 398E118B185AECE900C42887 /* XMPPTransManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -747,6 +749,9 @@
 		398BDA5D1855C8A300B8D6F9 /* MJRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshHeaderView.m; sourceTree = "<group>"; };
 		398BDA5E1855C8A300B8D6F9 /* RefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshTableViewController.h; sourceTree = "<group>"; };
 		398BDA5F1855C8A300B8D6F9 /* RefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshTableViewController.m; sourceTree = "<group>"; };
+		398E1188185AA39300C42887 /* UserData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserData.plist; sourceTree = "<group>"; };
+		398E118A185AECE900C42887 /* XMPPTransManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPTransManager.h; sourceTree = "<group>"; };
+		398E118B185AECE900C42887 /* XMPPTransManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMPPTransManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1683,6 +1688,7 @@
 				3988E6681857349200FC7748 /* Constant.m */,
 				3988E6641857347300FC7748 /* AppData.h */,
 				3988E6651857347300FC7748 /* AppData.m */,
+				398E1188185AA39300C42887 /* UserData.plist */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -1824,6 +1830,8 @@
 		398B1F4B1858637400DC7596 /* XMPP */ = {
 			isa = PBXGroup;
 			children = (
+				398E118A185AECE900C42887 /* XMPPTransManager.h */,
+				398E118B185AECE900C42887 /* XMPPTransManager.m */,
 				3988A49E185961A100B69CC2 /* XMPPFramework.h */,
 				39889C3F1859616F00B69CC2 /* Authentication */,
 				39889C531859616F00B69CC2 /* Categories */,
@@ -2143,6 +2151,7 @@
 				3988E69A1857356400FC7748 /* menu.png in Resources */,
 				398BD9E118558E8D00B8D6F9 /* InfoPlist.strings in Resources */,
 				398BDA601855C8A300B8D6F9 /* MJRefresh.bundle in Resources */,
+				398E1189185AA39300C42887 /* UserData.plist in Resources */,
 				3988A4391859617600B69CC2 /* build-libidn.sh in Resources */,
 				3988E6981857356400FC7748 /* map.png in Resources */,
 				3988E6991857356400FC7748 /* map@2x.png in Resources */,
@@ -2377,6 +2386,7 @@
 				3988E6181857333F00FC7748 /* ITSRequestFactory.m in Sources */,
 				3988E6241857333F00FC7748 /* ITSGCDMulticastDelegate.m in Sources */,
 				3988A4361859617600B69CC2 /* DDXMLDocument.m in Sources */,
+				398E118C185AECE900C42887 /* XMPPTransManager.m in Sources */,
 				398B1F141858594600DC7596 /* SimpleSearchControl.m in Sources */,
 				3988E660185733CE00FC7748 /* ContextFilterLogFormatter.m in Sources */,
 				3988E62B1857333F00FC7748 /* JSONKit.m in Sources */,

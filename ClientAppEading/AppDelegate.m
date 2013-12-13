@@ -8,17 +8,25 @@
 
 #import "AppDelegate.h"
 #import "ITSTransManager.h"
+#import "XMPPTransManager.h"
+#import "AppData.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // 日志
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    
     // 监听震动
     [application setApplicationSupportsShakeToEdit:YES];
     
     // 初始化网络参数
     ITSTransManager *transManager = [ITSTransManager defaultManager];
     [transManager setHostname:@""];
+    [AppData appData];
+    
+    [XMPPTransManager defaultManager];
     
     return YES;
 }

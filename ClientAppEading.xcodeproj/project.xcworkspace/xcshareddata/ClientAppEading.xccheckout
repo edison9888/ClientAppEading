@@ -5,13 +5,15 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>E5A247DF-5DA7-40B0-9895-B881F11455D0</string>
+	<string>3FCCD693-9A9C-4320-96E7-261DA10CA462</string>
 	<key>IDESourceControlProjectName</key>
 	<string>ClientAppEading</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>20FDBF21-A7A3-48D0-BC94-9DDD05B96A61</key>
 		<string>https://github.com/xuwaer/ClientAppEading.git</string>
+		<key>E4C05CC4-9078-4CC6-BF55-29ABE8E6D706</key>
+		<string>https://github.com/xuwaer/XMPPFramework.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>ClientAppEading.xcodeproj/project.xcworkspace</string>
@@ -19,6 +21,8 @@
 	<dict>
 		<key>20FDBF21-A7A3-48D0-BC94-9DDD05B96A61</key>
 		<string>../..</string>
+		<key>E4C05CC4-9078-4CC6-BF55-29ABE8E6D706</key>
+		<string>../../../XMPPFramework</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/xuwaer/ClientAppEading.git</string>
@@ -35,6 +39,14 @@
 			<string>20FDBF21-A7A3-48D0-BC94-9DDD05B96A61</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ClientAppEading</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E4C05CC4-9078-4CC6-BF55-29ABE8E6D706</string>
+			<key>IDESourceControlWCCName</key>
+			<string>XMPPFramework</string>
 		</dict>
 	</array>
 </dict>
