@@ -18,10 +18,6 @@ enum HttpRequestType {
     };
 
 @interface BaseRequest : NSObject<ITSRequestDelegate>
-{
-    NSString *_requestCommand;
-    enum _requestType;
-}
 
 /**
  *	@brief	请求命令
